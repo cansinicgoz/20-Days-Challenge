@@ -1,0 +1,999 @@
+/*
+ * Advanced Password Generator - Stylesheet
+ * Professional CSS with organized sections and modern design
+ * Author: [Cansın İçgöz]
+ * Version: 1.0.0
+ * Description: Modern password generator with cyber theme and responsive design
+ */
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ROOT VARIABLES & THEMES
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --primary-blue: #4a90e2;
+  --secondary-blue: #5b9bd5;
+  --dark-blue: #2e5bba;
+  --very-dark-blue: #0a1a3a;
+  --medium-blue: #1a237e;
+  --bright-blue: #1565c0;
+
+  /* Neon Accent Colors */
+  --neon-green: #00e676;
+  --neon-green-dark: #00c853;
+
+  /* Neutral Colors */
+  --white: #ffffff;
+  --light-gray: #e0e0e0;
+  --medium-gray: #a0a0a0;
+  --dark-gray: #2c3e50;
+
+  /* Background Gradients */
+  --bg-gradient: linear-gradient(135deg, #0a0a2e 0%, #16213e 50%, #0f3460 100%);
+  --container-gradient: linear-gradient(135deg, #0a1a3a 0%, #1a237e 100%);
+  --result-gradient: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 15px rgba(74, 144, 226, 0.3);
+  --shadow-medium: 0 8px 25px rgba(74, 144, 226, 0.4);
+  --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s ease;
+  --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ==========================================================================
+   BODY & LAYOUT
+   ========================================================================== */
+
+body {
+  background: var(--bg-gradient);
+  color: var(--white);
+  font-family: "Space Grotesk", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  transition: var(--transition-smooth);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   LIGHT THEME OVERRIDES
+   ========================================================================== */
+
+body.light-theme {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: var(--dark-gray);
+}
+
+body.light-theme .container {
+  background: var(--white);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme h1 {
+  color: var(--dark-gray);
+}
+
+body.light-theme .result-container {
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .strength-container {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .setting {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .setting:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(74, 144, 226, 0.3);
+}
+
+body.light-theme .setting label {
+  color: var(--dark-gray);
+}
+
+body.light-theme .strength-label {
+  color: var(--dark-gray);
+}
+
+body.light-theme .strength-text {
+  color: #7f8c8d;
+}
+
+body.light-theme .setting:first-of-type label {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 144, 226, 0.15) 0%,
+    rgba(44, 62, 80, 0.15) 100%
+  );
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  color: var(--primary-blue);
+}
+
+body.light-theme .setting:first-of-type label:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 144, 226, 0.25) 0%,
+    rgba(44, 62, 80, 0.25) 100%
+  );
+  border-color: rgba(74, 144, 226, 0.5);
+}
+
+/* ==========================================================================
+   MAIN CONTAINER
+   ========================================================================== */
+
+.container {
+  background: var(--container-gradient);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--shadow-strong), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(20px);
+  overflow: visible;
+  position: relative;
+}
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.app-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  font-size: 24px;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.theme-toggle {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-blue) 0%,
+    var(--dark-blue) 100%
+  );
+  border: none;
+  color: var(--white);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: var(--shadow-medium);
+}
+
+.theme-toggle:active {
+  transform: translateY(0) scale(1.05);
+}
+
+/* ==========================================================================
+   PASSWORD DISPLAY SECTION
+   ========================================================================== */
+
+.result-container {
+  background: var(--result-gradient);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 18px;
+  height: 70px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.password-display {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: calc(100% - 100px);
+  line-height: 1.2;
+  flex: 1;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 13px;
+  max-height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: var(--transition-smooth);
+}
+
+.password-display.hidden {
+  filter: blur(8px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.result-buttons {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.result-container .btn {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--secondary-blue) 0%,
+    var(--dark-blue) 100%
+  );
+  border: none;
+  transition: var(--transition-bounce);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-preview {
+  background: linear-gradient(
+    135deg,
+    var(--neon-green) 0%,
+    var(--neon-green-dark) 100%
+  ) !important;
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.4) !important;
+}
+
+.btn-preview:hover {
+  background: linear-gradient(
+    135deg,
+    var(--neon-green-dark) 0%,
+    var(--neon-green) 100%
+  ) !important;
+  box-shadow: 0 8px 25px rgba(0, 230, 118, 0.6) !important;
+}
+
+.result-container .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.result-container .btn:hover::before {
+  left: 100%;
+}
+
+.result-container .btn:hover {
+  background: linear-gradient(
+    135deg,
+    var(--neon-green) 0%,
+    var(--neon-green-dark) 100%
+  );
+  transform: translateY(-3px) scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-medium);
+}
+
+.result-container .btn:active {
+  transform: translateY(-1px) scale(1.05) rotate(2deg);
+}
+
+/* ==========================================================================
+   PASSWORD STRENGTH INDICATOR
+   ========================================================================== */
+
+.strength-container {
+  margin-bottom: 20px;
+  padding: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 230, 118, 0.1) 0%,
+    rgba(0, 200, 83, 0.1) 100%
+  );
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.strength-label {
+  font-size: 13px;
+  color: var(--light-gray);
+  margin-bottom: 6px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.strength-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ff4757;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-fill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.strength-fill.weak {
+  width: 30%;
+  background: linear-gradient(135deg, #ff4757 0%, #ff6b7a 100%);
+  box-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+}
+
+.strength-fill.medium {
+  width: 70%;
+  background: linear-gradient(135deg, #ffa502 0%, #ffb84d 100%);
+  box-shadow: 0 0 10px rgba(255, 165, 2, 0.3);
+}
+
+.strength-fill.strong {
+  width: 100%;
+  background: linear-gradient(135deg, #2ed573 0%, #7bed9f 100%);
+  box-shadow: 0 0 10px rgba(46, 213, 115, 0.3);
+}
+
+.strength-text {
+  font-size: 11px;
+  color: var(--medium-gray);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ========================================================================== */
+
+.btn {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-blue) 0%,
+    var(--dark-blue) 100%
+  );
+  border: none;
+  color: var(--white);
+  font-size: 14px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: var(--transition-bounce);
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    135deg,
+    var(--neon-green) 0%,
+    var(--neon-green-dark) 100%
+  );
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 230, 118, 0.6);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+}
+
+.btn-large {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+}
+
+.btn-large:hover {
+  background: linear-gradient(
+    135deg,
+    var(--neon-green) 0%,
+    var(--neon-green-dark) 100%
+  );
+  box-shadow: 0 15px 35px rgba(0, 230, 118, 0.6);
+}
+
+/* ==========================================================================
+   SETTINGS SECTION
+   ========================================================================== */
+
+.settings {
+  margin-bottom: 20px;
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  padding: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 230, 118, 0.08) 0%,
+    rgba(0, 200, 83, 0.08) 100%
+  );
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.setting:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(74, 144, 226, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(74, 144, 226, 0.15);
+}
+
+.setting::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(74, 144, 226, 0.1),
+    transparent
+  );
+  transition: left 0.8s;
+}
+
+.setting:hover::before {
+  left: 100%;
+}
+
+.setting-label {
+  font-weight: 500;
+  color: var(--light-gray);
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition-smooth);
+  padding: 6px 10px;
+  border-radius: 6px;
+  position: relative;
+}
+
+/* Special styling for Password Length label */
+.setting:first-of-type .setting-label {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 144, 226, 0.1) 0%,
+    rgba(44, 62, 80, 0.1) 100%
+  );
+  border: 1px solid rgba(74, 144, 226, 0.2);
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);
+}
+
+.setting-label:hover {
+  color: var(--primary-blue);
+  background: rgba(74, 144, 226, 0.1);
+  transform: translateX(5px);
+}
+
+.setting:first-of-type .setting-label:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 144, 226, 0.2) 0%,
+    rgba(44, 62, 80, 0.2) 100%
+  );
+  border-color: rgba(74, 144, 226, 0.4);
+  transform: translateX(5px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);
+}
+
+/* ==========================================================================
+   LENGTH CONTROLS
+   ========================================================================== */
+
+.length-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.length-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.length-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--secondary-blue) 0%,
+    var(--dark-blue) 100%
+  );
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.length-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.6);
+}
+
+.length-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--secondary-blue) 0%,
+    var(--dark-blue) 100%
+  );
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.length-slider::-moz-range-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.6);
+}
+
+.slider-value {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  background: rgba(74, 144, 226, 0.1);
+  padding: 3px 6px;
+  border-radius: 4px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   NUMBER CONTROLS
+   ========================================================================== */
+
+.number-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.number-controls input[type="number"] {
+  background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+  border: 2px solid rgba(74, 144, 226, 0.3);
+  color: var(--white);
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 65px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 10px rgba(74, 144, 226, 0.1);
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.number-controls input[type="number"]::-webkit-outer-spin-button,
+.number-controls input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.number-btn {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-blue) 0%,
+    var(--dark-blue) 100%
+  );
+  border: none;
+  color: var(--white);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+}
+
+.number-btn:hover {
+  background: linear-gradient(
+    135deg,
+    var(--neon-green) 0%,
+    var(--neon-green-dark) 100%
+  );
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 230, 118, 0.6);
+}
+
+.number-btn:active {
+  transform: translateY(0) scale(1.05);
+}
+
+/* ==========================================================================
+   FORM ELEMENTS
+   ========================================================================== */
+
+.setting input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  transform: scale(1.05);
+}
+
+.setting input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--primary-blue);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+  transform: scale(1.1);
+}
+
+.setting input[type="checkbox"]:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+    min-height: 100vh;
+  }
+
+  .container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .app-title {
+    font-size: 24px;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .result-container {
+    height: 65px;
+    padding: 15px;
+  }
+
+  .result-container .password-display {
+    font-size: 12px;
+    max-height: 32px;
+  }
+
+  .strength-container {
+    padding: 12px;
+    margin-bottom: 18px;
+  }
+
+  .setting {
+    padding: 12px;
+    margin: 15px 0;
+  }
+
+  .setting-label {
+    font-size: 13px;
+    padding: 5px 7px;
+  }
+
+  .length-controls {
+    gap: 10px;
+  }
+
+  .slider-container {
+    gap: 5px;
+  }
+
+  .length-slider {
+    height: 5px;
+  }
+
+  .length-slider::-webkit-slider-thumb {
+    width: 16px;
+    height: 16px;
+  }
+
+  .length-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+  }
+
+  .slider-value {
+    font-size: 11px;
+    padding: 2px 5px;
+  }
+
+  .number-controls input[type="number"] {
+    width: 60px;
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  .number-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .btn-large {
+    padding: 12px;
+    font-size: 15px;
+    margin-top: 12px;
+  }
+
+  .result-buttons {
+    top: 6px;
+    right: 6px;
+    gap: 6px;
+  }
+
+  .result-container .btn {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .result-container .password-display {
+    max-width: calc(100% - 85px);
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .result-container {
+    height: 60px;
+    padding: 12px;
+  }
+
+  .result-container .password-display {
+    font-size: 11px;
+    max-height: 30px;
+    max-width: calc(100% - 80px);
+  }
+
+  .setting {
+    padding: 10px;
+    margin: 12px 0;
+  }
+
+  .setting-label {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .length-controls {
+    gap: 8px;
+  }
+
+  .number-controls input[type="number"] {
+    width: 55px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .number-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+
+  .btn-large {
+    padding: 11px;
+    font-size: 14px;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & FOCUS STATES
+   ========================================================================== */
+
+*:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+.btn:focus,
+.theme-toggle:focus,
+.number-btn:focus {
+  outline: 2px solid var(--neon-green);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .btn {
+    display: none;
+  }
+}

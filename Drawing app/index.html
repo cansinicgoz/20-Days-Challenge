@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Drawing App</title>
+  </head>
+  <body>
+    <div class="welcome-screen" id="welcomeScreen">
+      <h1>Drawing App</h1>
+      <button id="startBtn" class="start-button">Start Drawing</button>
+    </div>
+
+    <div class="main-app" id="mainApp" style="display: none">
+      <canvas id="canvas" width="1000" height="700"></canvas>
+      <div class="toolbox">
+        <button id="decrease">-</button>
+        <span id="size">10</span>
+        <button id="increase">+</button>
+        <input type="color" name="color" id="color" />
+        <button id="clear">Clear</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

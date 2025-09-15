@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ColorMatch</title>
+  </head>
+  <body>
+    <div class="level-display">
+      <h2>Level <span id="currentLevel">1</span></h2>
+      <h3>Completed: <span id="completedLevels">0</span></h3>
+    </div>
+
+    <div class="restart-button">
+      <button id="startBtn">Start</button>
+    </div>
+
+    <div class="score-display">
+      <h2>Score: <span id="score">0</span></h2>
+    </div>
+
+    <div class="game-container">
+      <div class="color-palette" id="colorPalette">
+        <h3>Color Palette</h3>
+        <div class="colors-grid" id="colorsGrid"></div>
+      </div>
+      
+      <div class="main-container">
+        <div class="timer-display">
+          <h2>Time: <span id="timer">60</span>s</h2>
+        </div>
+        <div class="container" id="container">
+          
+        </div>
+      </div>
+      
+      <div class="small-container">
+        <h3>Pattern to Match</h3>
+        <div class="small-grid" id="smallGrid">
+          
+        </div>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

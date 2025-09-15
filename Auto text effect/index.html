@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Auto text effect</title>
+  </head>
+  <body>
+    <h1 id="text">Starting...</h1>
+    <div class="main-container">
+      <div class="speed-container">
+        <label for="speed">Speed</label>
+        <div class="speed-control">
+          <button class="speed-btn minus" type="button">−</button>
+          <span id="speed">1</span>
+          <button class="speed-btn plus" type="button">+</button>
+        </div>
+      </div>
+
+      <div class="controls-container">
+        <button id="reset">Reset</button>
+        <select id="textSelector">
+          <option value="" disabled selected>Choose a text</option>
+          <option value="Hello world">Hello world</option>
+          <option value="Have a great day">Have a great day</option>
+          <option value="Coding is fun">Coding is fun</option>
+          <option value="Learning to program">Learning to program</option>
+          <option value="JavaScript is awesome">JavaScript is awesome</option>
+          <option value="Web development is enjoyable">Web development is enjoyable</option>
+        </select>
+        <button id="start">Start</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

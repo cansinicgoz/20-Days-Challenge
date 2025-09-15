@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Advanced Password Generator - Create secure, customizable passwords with real-time strength analysis"
+    />
+    <meta
+      name="keywords"
+      content="password generator, security, cybersecurity, password strength, secure passwords"
+    />
+    <meta name="author" content="Cansın İçgöz" />
+
+    <!-- Preconnect to Google Fonts for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts - Space Grotesk for UI, IBM Plex Mono for password display -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Advanced Password Generator | Secure Password Creation Tool</title>
+  </head>
+  <body>
+    <!-- Main Application Container -->
+    <div class="container">
+      <!-- Header Section with Theme Toggle -->
+      <header class="header">
+        <h1 class="app-title">Password Generator</h1>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Toggle dark/light theme"
+        >
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+      </header>
+
+      <!-- Password Display Section -->
+      <section
+        class="result-container"
+        role="region"
+        aria-label="Generated password display"
+      >
+        <span id="result" class="password-display" aria-live="polite"></span>
+        <div class="result-buttons">
+          <button
+            class="btn btn-preview"
+            id="previewToggle"
+            aria-label="Toggle password visibility"
+          >
+            <i class="fas fa-eye" id="previewIcon"></i>
+          </button>
+          <button
+            class="btn btn-copy"
+            id="clipboard"
+            aria-label="Copy password to clipboard"
+          >
+            <i class="far fa-clipboard"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Password Strength Indicator -->
+      <section
+        class="strength-container"
+        role="region"
+        aria-label="Password strength analysis"
+      >
+        <div class="strength-label">Password Strength</div>
+        <div
+          class="strength-bar"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div class="strength-fill" id="strengthFill"></div>
+        </div>
+        <div class="strength-text" id="strengthText">Generate a password</div>
+      </section>
+
+      <!-- Configuration Settings -->
+      <section
+        class="settings"
+        role="region"
+        aria-label="Password configuration options"
+      >
+        <!-- Password Length Control -->
+        <div class="setting setting-length">
+          <label for="length" class="setting-label">Password Length</label>
+          <div class="length-controls">
+            <div class="slider-container">
+              <input
+                type="range"
+                id="lengthSlider"
+                min="4"
+                max="128"
+                value="25"
+                class="length-slider"
+                aria-label="Password length slider"
+              />
+              <div class="slider-value" id="sliderValue" aria-live="polite">
+                25
+              </div>
+            </div>
+            <div class="number-controls">
+              <button
+                type="button"
+                class="number-btn"
+                id="decrease"
+                aria-label="Decrease password length"
+              >
+                -
+              </button>
+              <input
+                type="number"
+                id="length"
+                min="4"
+                max="128"
+                value="25"
+                aria-label="Password length input"
+              />
+              <button
+                type="button"
+                class="number-btn"
+                id="increase"
+                aria-label="Increase password length"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Character Type Options -->
+        <div class="setting">
+          <label for="uppercase" class="setting-label"
+            >Include Uppercase Letters (A-Z)</label
+          >
+          <input
+            type="checkbox"
+            id="uppercase"
+            checked
+            aria-describedby="uppercase-desc"
+          />
+        </div>
+
+        <div class="setting">
+          <label for="lowercase" class="setting-label"
+            >Include Lowercase Letters (a-z)</label
+          >
+          <input
+            type="checkbox"
+            id="lowercase"
+            checked
+            aria-describedby="lowercase-desc"
+          />
+        </div>
+
+        <div class="setting">
+          <label for="numbers" class="setting-label"
+            >Include Numbers (0-9)</label
+          >
+          <input
+            type="checkbox"
+            id="numbers"
+            checked
+            aria-describedby="numbers-desc"
+          />
+        </div>
+
+        <div class="setting">
+          <label for="symbols" class="setting-label"
+            >Include Symbols (!@#$%^&*)</label
+          >
+          <input
+            type="checkbox"
+            id="symbols"
+            checked
+            aria-describedby="symbols-desc"
+          />
+        </div>
+      </section>
+
+      <!-- Generate Button -->
+      <button
+        class="btn btn-large"
+        id="generate"
+        aria-label="Generate new password"
+      >
+        <i class="fas fa-key"></i>
+        Generate Password
+      </button>
+    </div>
+
+    <!-- JavaScript Application -->
+    <script src="script.js"></script>
+  </body>
+</html>

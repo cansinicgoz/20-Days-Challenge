@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f9fa;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h4{
+    font-size: 22px;
+    margin: 15px 0 5px 0;
+    text-transform: uppercase;
+    color: #495057;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+h4:hover {
+    color: #343a40;
+    transform: translateY(-2px);
+}
+
+.counter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.counter:hover {
+  transform: translate(-50%, -50%) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.counter.hide {
+  transform: translate(-50%, -50%) scale(0);
+  animation: hide 0.2s ease-out;
+}
+
+@keyframes hide {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
+
+.final {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  text-align: center;
+  display: none;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.final.show {
+  transform: translate(-50%, -50%) scale(1);
+  animation: show 0.2s ease-out;
+  display: block;
+}
+
+@keyframes show {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  30% {
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.nums {
+    color: #2c3e50;
+    font-size: 60px;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    width: 280px;
+    height: 62px;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.nums:hover {
+    transform: scale(1.05);
+}
+
+.nums span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(120deg);
+    transform-origin: bottom center;
+}
+
+.nums span.in{
+
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: goIn 0.5s ease-in-out;
+}
+
+.nums span.out{
+    animation: goOut 0.5s ease-in-out;
+}
+
+
+@keyframes goIn{
+    0% {
+        transform: translate(-50%, -50%) rotate(120deg);
+    }
+    30% {
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }
+ 
+    60%{
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@keyframes goOut{
+    
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    60%{
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+    
+    100% {
+        transform: translate(-50%, -50%) rotate(-120deg);
+    }
+}
+
+.final h1 {
+    font-size: 80px;
+    margin: 10px 0 20px 0;
+    color: #2c3e50;
+    font-weight: 800;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.final h1:hover {
+    transform: scale(1.1) rotate(2deg);
+    color: #34495e;
+}
+
+.final button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.final button:hover {
+    background-color: #34495e;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(44, 62, 80, 0.4);
+}
+
+.final button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.counter button {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
+}
+
+.counter button:hover {
+    background-color: #34495e;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.3);
+}
+
+.counter button:active {
+    transform: translateY(0) scale(1.02);
+}

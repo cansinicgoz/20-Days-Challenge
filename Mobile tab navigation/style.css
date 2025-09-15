@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    
+    margin: 0;
+    padding: 0;
+    background-color: #b8440a;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.phone{
+    position: relative;
+    width: 360px;
+    height: 640px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 3px solid #eee;
+}
+
+.phone .content{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 50px);
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.phone .content.show{
+    opacity: 1;
+}
+
+.phone .content:nth-child(2){
+    object-fit: contain;
+}
+
+nav{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-top: -5px;
+    width: 100%;
+}
+
+nav ul{
+   background-color: #fff;
+   display: flex;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   height: 50px;
+
+
+}
+
+
+nav li{
+    color: #000;
+    cursor: pointer;
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+nav li p{
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+nav ul li:hover, nav ul li.active{
+    color: #b8440a;
+}
