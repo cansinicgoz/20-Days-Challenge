@@ -5,7 +5,7 @@
 }
 
 body {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background: linear-gradient(45deg, #ff9500, #ff9a56, #ffad5a, #ffb347);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
   color: white;
@@ -28,14 +28,16 @@ body {
 .container h1 {
   text-align: center;
   margin-bottom: 50px;
-  color: lightblue;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
 }
 
 .btn {
   cursor: pointer;
   display: inline-block;
   width: 100%;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background: linear-gradient(45deg, #ff9500, #ff9a56, #ffad5a, #ffb347);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
   padding: 15px;
@@ -86,7 +88,7 @@ body {
 .form-control input:focus,
 .form-control input:valid {
   outline: 0;
-  border-bottom-color: lightblue;
+  border-bottom-color: #ff9500;
 }
 
 .form-control label {
@@ -105,11 +107,11 @@ body {
 .form-control input:focus + label span,
 .form-control input:valid + label span {
   transform: translateY(-30px);
-  color: lightblue;
+  color: #ff9500;
 }
 
 .register {
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  background: linear-gradient(45deg, #ff9500, #ff9a56, #ffad5a, #ffb347);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
   padding: 10px 20px;

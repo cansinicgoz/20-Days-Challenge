@@ -6,9 +6,7 @@
 }
 
 body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  background: #1565c0;
   color: white;
   justify-content: center;
   padding: 20px;
@@ -196,6 +194,11 @@ h1::before {
 
 .faq-toggle .fa-times {
   display: none;
+  color: #fff;
+}
+
+.faq-toggle .fa-chevron-down {
+  color: #fff;
 }
 
 .faq.active .faq-toggle .fa-times {
@@ -205,6 +208,7 @@ h1::before {
 
 .faq.active .faq-toggle .fa-chevron-down {
   display: none;
+  color: #fff;
 }
 
 .faq.active .faq-toggle {
